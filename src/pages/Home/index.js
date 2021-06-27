@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CardTeam from '../../components/Cards/CardTeam';
+import TeamInfo from '../../components/TeamInfo';
 import noimage from '../../img/default.png';
 import Searchbar from '../../components/Searchbar';
 
@@ -52,8 +53,11 @@ function Home() {
       <Searchbar/>
     </Row>
     <Row>
+      <TeamInfo/>
+    </Row>
+    <Row>
     {superteam.map((superh,key)=>{
-     return(<Col><CardTeam key={key} name={superh.name} image={superh.image.url}/></Col>)
+     return(<Col><CardTeam key={key} name={superh.name} image={superh.image.url} powerstats={superh.powerstats}/></Col>)
    })}
 
   </Row>
