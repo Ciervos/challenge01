@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 
 
 function CardTeam(props) {
-
+ 
   function handleDelete(){
     
   let team =  localStorage.getItem('team')
@@ -19,6 +19,10 @@ function CardTeam(props) {
 
   }
 
+  function handleClick(){
+    props.flip()
+  }
+
   return <div className="cardteam-cont">
     <h1>{props.name}</h1>
     <img src={props.image} alt={props.name} className="cardteam-img"/>
@@ -26,14 +30,14 @@ function CardTeam(props) {
       <h2>Powerstats:</h2>
 
     <span>Combate: {props.powerstats.combat} </span>
-    <span>Durabilidad: {props.powerstats.durability} </span>
+    <span>Resistencia: {props.powerstats.durability} </span>
     <span>Inteligencia: {props.powerstats.intelligence} </span>
  
     <span>Poder: {props.powerstats.power} </span>
     <span>Velocidad: {props.powerstats.speed} </span>
     <span>Fuerza: {props.powerstats.strength} </span>
     </div>
-    <Button variant="primary">Detalles</Button>
+    <Button variant="primary" onClick={handleClick}>Detalles</Button>
     <Button variant="danger" onClick={handleDelete}>Eliminar</Button>
     </div>
 }

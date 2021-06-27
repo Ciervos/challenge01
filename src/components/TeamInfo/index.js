@@ -22,7 +22,7 @@ function TeamInfo() {
       sizeweightProm()
      
       
-      },[inorderpowers]);
+      });
 
       function powerstatsCalc(){
       let power = 0;
@@ -64,7 +64,7 @@ function TeamInfo() {
           }else if(num===ourpowerstats.power){
             sortedObj.push({name: "Poder", number: num})   
           }else if(num===ourpowerstats.durability){
-            sortedObj.push({name: "Durabilidad", number: num})    
+            sortedObj.push({name: "Resistencia", number: num})    
           }else if(num===ourpowerstats.intelligence){
             sortedObj.push({name: "Inteligencia", number: num})    
           }else if(num===ourpowerstats.speed){

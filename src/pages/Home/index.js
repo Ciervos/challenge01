@@ -5,9 +5,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CardTeam from '../../components/Cards/CardTeam';
+import CardInfo from '../../components/Cards/CardInfo';
 import TeamInfo from '../../components/TeamInfo';
 import noimage from '../../img/default.png';
 import Searchbar from '../../components/Searchbar';
+import ReactCardFlip from 'react-card-flip';
 
 
 function Home() {
@@ -18,6 +20,7 @@ function Home() {
     const token = localStorage.getItem('token');
     const team = localStorage.getItem('team');
     const [superteam,setSuperteam] = useState(team ? JSON.parse(team): []);
+    const [isflipped,setIsFlipped] = useState(false)
 
     useEffect(() => {
        
@@ -49,7 +52,11 @@ function Home() {
      setSuperteam(data)
 
    }
-   
+
+   function handleflip(){
+     setIsFlipped(!isflipped)
+   }
+
   return <>
     
     
@@ -62,7 +69,11 @@ function Home() {
     </Row>
     <Row>
     {superteam.map((superh,key)=>{
-     return(<Col><CardTeam key={key} id={superh.id} name={superh.name} image={superh.image.url} powerstats={superh.powerstats} cb={handleCb}/></Col>)
+     return(<Col>
+     <ReactCardFlip isFlipped={isflipped} flipDirection="horizontal">
+     <CardTeam key={key} id={superh.id} name={superh.name} image={superh.image.url} powerstats={superh.powerstats} cb={handleCb} flip={handleflip}/>
+     <CardInfo key={key} info={superh} flip={handleflip}/>
+     </ReactCardFlip></Col>)
    })}
 
   </Row>
