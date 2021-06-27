@@ -5,7 +5,6 @@ import { Button } from 'react-bootstrap';
 
 
 function CardTeam(props) {
-  console.log(props.alignment)
   function handleDelete(){
     
   let team =  localStorage.getItem('team')

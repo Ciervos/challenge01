@@ -35,6 +35,7 @@ function Login() {
           })
           .catch(function (error) {
             alert("La información ingresada no es correcta");
+            
           });
         },
       });
