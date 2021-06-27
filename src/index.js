@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Login from './pages/Login';
 import Home from './pages/Home';
+import HiringSuper from './pages/HiringSuper';
 import {
   BrowserRouter as Router,
   Route,
@@ -14,6 +15,7 @@ ReactDOM.render(
   <Router>
     <Route exact path="/" component={Home}/>
     <Route path="/login" component={Login}/> 
+    <Route path="/search/:who" component={HiringSuper}/> 
 
   </Router>
   </React.StrictMode>,

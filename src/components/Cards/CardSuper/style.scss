@@ -1,1 +1,27 @@
 @import '../../../styles/variables.scss'; 
+
+
+.cardsuper-cont{
+
+    border: 1px solid $gray-600;
+    border-radius: 5px;
+    background-color: $white; 
+    display: flex;
+    flex-direction: column;  
+    height: 300px;
+    margin: 5px;
+    padding: 5px;
+    width: 180px;
+
+& h1{
+  font-size: 20px;  
+  font-family: 'Bangers', cursive;
+}    
+.cardsuper-img{
+  
+  margin-bottom: 10px;  
+  max-height: 200px;  
+  width: 150px;  
+}    
+
+}

@@ -14,13 +14,19 @@ $colors: (
   "white":      $white,
   "gray":       $gray-600,
   "gray-dark":  $gray-800,
-
+     
  
 );
 
 // Otros Colores
 
 $salmon: #ff8c69;
+
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans&display=swap');
+*{
+font-family: 'Open Sans', sans-serif;   
+}
 
 $grid-breakpoints: (
   xs: 0,
