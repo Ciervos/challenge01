@@ -8,6 +8,14 @@ margin: 20px;
 padding: 5px;
 max-width: 500px;
 
+.teaminfo-mainpower{
+ color: $green;   
+ font-weight: bold;  
+}
+
+.teaminfo-inforow{
+ margin: 5px;   
+}
 
 & h1{
     font-size: 28px;  
