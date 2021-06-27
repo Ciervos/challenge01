@@ -6,6 +6,19 @@ import { Button } from 'react-bootstrap';
 
 function CardTeam(props) {
 
+  function handleDelete(){
+    
+  let team =  localStorage.getItem('team')
+  let ourteam = JSON.parse(team)
+  let indx = ourteam.findIndex((element) => element.id === props.id)
+  
+  ourteam.splice(indx,1)
+  localStorage.setItem('team', JSON.stringify(ourteam))
+  props.cb(ourteam)
+  
+
+  }
+
   return <div className="cardteam-cont">
     <h1>{props.name}</h1>
     <img src={props.image} alt={props.name} className="cardteam-img"/>
@@ -21,7 +34,7 @@ function CardTeam(props) {
     <span>Fuerza: {props.powerstats.strength} </span>
     </div>
     <Button variant="primary">Detalles</Button>
-    <Button variant="danger">Eliminar</Button>
+    <Button variant="danger" onClick={handleDelete}>Eliminar</Button>
     </div>
 }
 

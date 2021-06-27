@@ -2,7 +2,7 @@ import React from 'react'
 import './style.scss';
 
 
-function CardHiring() {
+function Cardinfo() {
 
   return <>
     
@@ -11,4 +11,4 @@ function CardHiring() {
     </>
 }
 
-export default CardHiring;
+export default CardInfo;

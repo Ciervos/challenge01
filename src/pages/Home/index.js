@@ -44,7 +44,12 @@ function Home() {
       }
         }
 
+   function handleCb(data){
+    
+     setSuperteam(data)
 
+   }
+   
   return <>
     
     
@@ -57,7 +62,7 @@ function Home() {
     </Row>
     <Row>
     {superteam.map((superh,key)=>{
-     return(<Col><CardTeam key={key} name={superh.name} image={superh.image.url} powerstats={superh.powerstats}/></Col>)
+     return(<Col><CardTeam key={key} id={superh.id} name={superh.name} image={superh.image.url} powerstats={superh.powerstats} cb={handleCb}/></Col>)
    })}
 
   </Row>

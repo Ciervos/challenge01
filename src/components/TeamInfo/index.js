@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 
 function TeamInfo() {
     const team = localStorage.getItem('team');
-    const ourteam = JSON.parse(team);  
+    const ourteam = team? JSON.parse(team): [];  
     const [ourpowerstats,setOurpowerstats] = useState({combat: 0,
     durability: 0,
     intelligence: 0,
@@ -22,7 +22,7 @@ function TeamInfo() {
       sizeweightProm()
      
       
-      }, []);
+      },[inorderpowers]);
 
       function powerstatsCalc(){
       let power = 0;
