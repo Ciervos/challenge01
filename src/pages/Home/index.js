@@ -19,8 +19,12 @@ function Home() {
     const info = location.info;
     const token = localStorage.getItem('token');
     const team = localStorage.getItem('team');
+    const goodali = localStorage.getItem('goodones')
+    const badali = localStorage.getItem('badones')
     const [superteam,setSuperteam] = useState(team ? JSON.parse(team): []);
     const [isflipped,setIsFlipped] = useState(false)
+    const [good, setGood] = useState(goodali? parseInt(JSON.parse(goodali)): 0 )
+    const [bad, setBad] = useState(badali? parseInt(JSON.parse(badali)): 0 )
 
     useEffect(() => {
        
@@ -39,11 +43,31 @@ function Home() {
 
    function newSuper(info){
          
-       if(superteam.length<6){  
+         let isokay = false
+         
+
+       if(info.biography.alignment==="good" && good<3){
+        isokay = !isokay
+        let newgood = good + 1;
+        
+        localStorage.setItem('goodones', JSON.stringify(newgood))
+        setGood(newgood)
+        
+
+       }else if(info.biography.alignment==="bad"&& bad<3){
+        isokay = !isokay
+        let newbad = bad + 1;
+        
+        localStorage.setItem('badones', JSON.stringify(newbad))
+        setBad(newbad)
+        
+       }
+
+       if(superteam.length<6 && isokay){  
        setSuperteam([...superteam,info])
        localStorage.setItem('team', JSON.stringify([...superteam,info]))
       }else{
-       alert("No se puede ingresar más supers") 
+       alert("El equipo solo puede tener 6 miembros. máx 3 buenos,3 malos, no neutrales.") 
       }
         }
 
@@ -71,7 +95,7 @@ function Home() {
     {superteam.map((superh,key)=>{
      return(<Col>
      <ReactCardFlip isFlipped={isflipped} flipDirection="horizontal">
-     <CardTeam key={key} id={superh.id} name={superh.name} image={superh.image.url} powerstats={superh.powerstats} cb={handleCb} flip={handleflip}/>
+     <CardTeam key={key} id={superh.id} name={superh.name} image={superh.image.url} powerstats={superh.powerstats} alignment={superh.biography.alignment} cb={handleCb} flip={handleflip}/>
      <CardInfo key={key} info={superh} flip={handleflip}/>
      </ReactCardFlip></Col>)
    })}

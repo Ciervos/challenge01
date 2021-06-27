@@ -5,16 +5,33 @@ import { Button } from 'react-bootstrap';
 
 
 function CardTeam(props) {
- 
+  console.log(props.alignment)
   function handleDelete(){
     
   let team =  localStorage.getItem('team')
   let ourteam = JSON.parse(team)
   let indx = ourteam.findIndex((element) => element.id === props.id)
+  let bad = parseInt(JSON.parse(localStorage.getItem('badones')))  
+  let good = parseInt(JSON.parse(localStorage.getItem('goodones')))
   
   ourteam.splice(indx,1)
   localStorage.setItem('team', JSON.stringify(ourteam))
   props.cb(ourteam)
+ 
+ 
+
+if(props.alignment==="good"){
+ 
+ let newgood = good - 1;
+ localStorage.setItem('goodones', JSON.stringify(newgood))
+ 
+
+}else if(props.alignment==="bad"){
+ 
+ let newbad = bad - 1;
+ localStorage.setItem('badones', JSON.stringify(newbad))
+ 
+}  
   
 
   }
